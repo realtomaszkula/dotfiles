@@ -1,0 +1,47 @@
+[user]
+	name = Tomasz Kula
+  email = tomaszkula07@gmail.com
+[core]
+	editor = vi
+[alias]
+  co = checkout
+  cm = commit
+  cmn = commit --no-verify
+	st = status
+  br = branch
+  ps = push
+  pl = pull
+  aa = add --all
+  ai = add -i
+  ca = commit --amend
+  car = commit --amend --no-edit
+  uncommit = reset --soft HEAD^
+  unstage = reset
+  sl = log --decorate --oneline -20
+  sla = log --decorate --oneline --graph --all -20
+  rbc = rebase --continue
+  riu = !git rebase -i $(git rev-parse --abbrev-ref --symbolic-full-name @{u})
+  rid = !git rebase -i $(git merge-base develop HEAD)
+  rim = !git rebase -i $(git merge-base master HEAD)
+  hb = !hub browse
+  hbi = !hub browse -- issues
+  conflicted = !vim +Conflicted
+  ctags = !.git/hooks/ctags
+  vdf = difftool
+[fetch]
+  prune = true
+[merge]
+  ff = only
+[push]
+  default = upstream
+[init]
+  templatedir = ~/.git_template
+[gitsh]
+  noGreeting = true
+  defaultCommand = status --short --branch && :echo
+[gitsh "color"]
+  default = cyan
+  untracked = yellow
+  modified = red
+[diff]
+	tool = vimdiff
