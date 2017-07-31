@@ -1,0 +1,4 @@
+# Resolve merge conflicts by using vim plugin Conflicted
+conflicted() {
+ vim +Conflicted
+}
