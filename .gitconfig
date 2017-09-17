@@ -15,6 +15,7 @@
   ai = add -i
   ca = commit --amend
   car = commit --amend --no-edit
+  clear = !git checkout . && git clean -df
   uncommit = reset --soft HEAD^
   unstage = reset
   sl = log --decorate --oneline -20
