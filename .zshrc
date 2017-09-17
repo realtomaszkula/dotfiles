@@ -46,6 +46,17 @@ alias dcd="docker-compose down"
 alias drmi='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
 alias drmae='docker rm $(docker ps -qa --no-trunc --filter "status=exited")'
 
+# npm
+alias npmre='rm -rf node_modules && npm install'
+alias nt='npm test'
+alias ntw='npm run test:watch'
+alias ns='npm start'
+alias nb='npm run build'
+alias nl='npm link'
+
+# for now only
+alias rmg='find -L node_modules/@pracujwpl -type d -name graphql | xargs rm -rf'
+
 # allow for Ctrl+R reverse search in node REPL
 alias node='env NODE_NO_READLINE=1 rlwrap node'
 
@@ -65,6 +76,10 @@ for function in ~/.zsh/functions/*; do
   source $function
 done
 
+for var in ~/.zsh/vars/*; do
+  source $var
+done
+
 # handy keybindings
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
@@ -74,10 +89,6 @@ bindkey "^P" history-search-backward
 bindkey "^Y" accept-and-hold
 bindkey "^N" insert-last-word
 bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
-
-
-# added by travis gem
-[ -f /home/zecik/.travis/travis.sh ] && source /home/zecik/.travis/travis.sh
 
 # COMPLETION SETTINGS
 # add custom completion scripts
