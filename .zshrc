@@ -80,26 +80,3 @@ for var in ~/.zsh/vars/*; do
   source $var
 done
 
-# handy keybindings
-bindkey "^A" beginning-of-line
-bindkey "^E" end-of-line
-bindkey "^K" kill-line
-bindkey "^R" history-incremental-search-backward
-bindkey "^P" history-search-backward
-bindkey "^Y" accept-and-hold
-bindkey "^N" insert-last-word
-bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
-
-# COMPLETION SETTINGS
-# add custom completion scripts
-fpath=(~/.zsh/completion $fpath)
-source ~/.local/bin/aws_zsh_completer.sh
-
-# compsys initialization
-autoload -Uz compinit && compinit -i
-
-# show completion menu when number of options is at least 2
-zstyle ':completion:*' menu select=2
-
-
-
