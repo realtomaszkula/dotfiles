@@ -32,33 +32,27 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
 # Example aliases
-alias zshconfig="vi ~/.zshrc"
-alias ohmyzsh="vi ~/.oh-my-zsh"
 alias xo="xdg-open"
 alias c="code"
 alias rs="redshift -t 3500:3500"
-alias dc="docker-compose"
-alias d="docker"
 alias dcu="docker-compose up"
 alias dcd="docker-compose down"
 alias drmi='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
 alias drmae='docker rm $(docker ps -qa --no-trunc --filter "status=exited")'
-
-# npm
 alias npmre='rm -rf node_modules && npm install'
-alias nt='npm test'
-alias ntw='npm run test:watch'
-alias ns='npm start'
-alias nb='npm run build'
-alias nl='npm link'
-
-# for now only
-alias rmg='find -L node_modules/@pracujwpl -type d -name graphql | xargs rm -rf'
 
 # allow for Ctrl+R reverse search in node REPL
 alias node='env NODE_NO_READLINE=1 rlwrap node'
+
+# load custom executable functions
+for function in ~/.zsh/functions/*; do
+  source $function
+done
+
+for var in ~/.zsh/vars/*; do
+  source $var
+done
 
 # Always start in tmux
 _not_inside_tmux() { [[ -z "$TMUX" ]] }
@@ -70,13 +64,3 @@ ensure_tmux_is_running() {
 }
 
 ensure_tmux_is_running
-
-# # load custom executable functions
-for function in ~/.zsh/functions/*; do
-  source $function
-done
-
-for var in ~/.zsh/vars/*; do
-  source $var
-done
-
